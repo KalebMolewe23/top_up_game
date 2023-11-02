@@ -10,8 +10,8 @@
 :root{
     --white: #fff;
     --black: #000000;
-    --light-blue: #4d03fa;
-    --dark-blue: #2a008b;
+    --light-blue: #424769;
+    --dark-blue: #2d3250;
 }
 
 body{
@@ -40,7 +40,7 @@ header{
 }
 
 .logo img{
-    width: 100px;
+    width: 50px;
 }
 
 .navbar{
@@ -175,6 +175,41 @@ div#slider figure {
     clear: both;
 }
 
+.cols {
+    float: center;
+    width: 100%;
+    padding: 0 0px;
+}
+
+.rows {
+    margin: 0 15px;
+}
+
+.rows input[type=text]{
+    float: right;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.rows .buttonsearch{
+    float: right;
+    background: var(--light-blue);
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 6px 10px;
+    margin: 0 -300px;
+    cursor: pointer;
+}
+
+.rows i {
+    color: var(--white);
+}
+
+/* .rows .search-container button:hover { */
+  /* background: #ccc; */
+/* } */
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 0px;
@@ -189,6 +224,151 @@ div#slider figure {
     height: 200px;
     width: 180px;
     border-radius: 10px;
+}
+
+footer{
+    position: relative;
+    width: 100%;
+    background: var(--light-blue);
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .social_icon, 
+footer .menu{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+footer .social_icon li a{
+    font-size: 2em;
+    color: var(--white);
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+footer .menu li a{
+    font-size: 1.2em;
+    color: var(--white);
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+footer .social_icon li a:hover{
+    transform: translateY(-10px);
+}
+
+footer .menu li a:hover{
+    opacity: 1;
+}
+
+footer p{
+    color: var(--white);
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card1 {
+    background-color: var(--light-blue);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    height: 400px;
+}
+
+.card1 img{
+    height: 150px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.card1 p{
+    font-size: 10px;
+}
+
+.card2 {
+    background-color: var(--light-blue);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 700px;
+}
+
+.card2 input{
+    border-radius: 10px;
+    width: 300px;
+    height: 35px;
+}
+
+.card2 p{
+    font-size: 10px;
+}
+
+.card3 {
+    background-color: var(--dark-blue);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    height: 400px;
+}
+
+.card_price p{
+    font-size: 8px;
+}
+
+.row_price{
+    margin: 0 0px;
+}
+
+.col_price {
+    float: left;
+    width: 30%;
+    padding: 0 0px;
+}
+
+.card_price{
+    background-color: var(--dark-blue);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 140px;
+}
+
+.button_price {
+    background-color: var(--light-blue);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 700px;
+    height: 30px;
+}
+
+.button_price p{
+    margin-top: -10px;
 }
 
 @media (max-width: 1280px){
@@ -229,6 +409,33 @@ div#slider figure {
     /* Remove extra left and right margins, due to padding */
     .row {
         margin: 0 0px;
+    }
+    .cols {
+        float: center;
+        width: 100%;
+        padding: 0 0px;
+    }
+    
+    .rows {
+        margin: 0 15px;
+    }
+    .rows input[type=text]{
+        float: right;
+        width: 200px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    .rows .buttonsearch{
+        float: right;
+        background: var(--light-blue);
+        font-size: 16px;
+        border-radius: 10px;
+        padding: 6px 10px;
+        margin: 0 -300px;
+        cursor: pointer;
+    }
+    .rows i {
+        color: var(--white);
     }
 }
 
@@ -278,5 +485,30 @@ div#slider figure {
     /* Remove extra left and right margins, due to padding */
     .row {
         margin: 0 0px;
+    }
+
+    .rows {
+        margin: 0 15px;
+    }
+
+    .rows input[type=text]{
+        float: right;
+        width: 200px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .rows .buttonsearch{
+        float: right;
+        background: var(--light-blue);
+        font-size: 16px;
+        border-radius: 10px;
+        padding: 6px 10px;
+        margin: 0 -200px;
+        cursor: pointer;
+    }
+    
+    .rows i {
+        color: var(--white);
     }
 }

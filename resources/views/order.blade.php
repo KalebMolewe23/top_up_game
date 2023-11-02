@@ -71,9 +71,9 @@
     </head>
     <body>
         <header>
-            <a href="#" class="logo"><img src="{!! asset('assets/logo/iki_gamestore.png') !!}"></a>
+            <a href="#" class="logo"><img src="{!! asset('assets/logo/eresta_dev.png') !!}"></a>
             <ul class="navbar">
-                <li><a href="{{ route('dashboard') }}" class="active"><i class='bx bx-home'></i> Home</a></li>
+                <li><a href="{{ route('dashboard') }}"><i class='bx bx-home'></i> Home</a></li>
                 <li><a href="#"><i class='bx bx-notepad'></i> Cek Invoice</a></li>
                 <li><a href="#"><i class='bx bx-food-menu'></i> Price List</a></li>
                 <li><a href="#"><i class='bx bx-buildings'></i> About</a></li>
@@ -91,57 +91,58 @@
         </header>
 
         <section class="home container">
-            <div id="slider">
-                <figure>
-                    <img src="{!! asset('assets/logo/banner1.jpg') !!}" alt>
-                    <img src="{!! asset('assets/logo/banner2.jpg') !!}" alt>
-                    <img src="{!! asset('assets/logo/banner3.jpg') !!}" alt>
-                    <img src="{!! asset('assets/logo/banner2.jpg') !!}" alt>
-                    <img src="{!! asset('assets/logo/banner3.jpg') !!}" alt>
-                </figure>
-            </div><br>
-            <h4>Popular</h4><br>
-            <div class="row">
-                @foreach ($popular as $v_popular)
-                <div class="column">
-                    <div class="card">
-                        <a href="{{ url('order/'.$v_popular->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_popular->img) !!}" alt></a>
+            <div class="card-container">
+                @foreach ($product as $v_product)
+                <!-- <div class="col_card"> -->
+                    <div class="card1">
+                        <img src="{!! asset('assets/logo/'.$v_product->img) !!}" alt>
+                        <h4 class="card_title">{!! $v_product->name !!} - {!! $v_product->developer_name !!}</h4><br>
+                        <p class="card_text">{!! $v_product->description !!}</p>
                     </div>
-                </div>
-                @endforeach
-            </div></br></br>
-
-            <div class="rows">
-                <div class="cols">
-                    <button class="button" onclick="topupgame()">Top Up Game</button>
-                    <button class="button" onclick="voucher()">Voucher</button>
-
-                    <input type="text" placeholder="   ketik Nama Game.." name="search">
-                    <button type="submit" class="buttonsearch"><i class='bx bx-search-alt-2'></i></button>
-                </div>
-            </div>
-
-            <div class="row" id="card"><br>
-                @foreach ($dpopular as $v_dpopular)
-                <div class="column">
-                    <div class="card">
-                        <a href="{{ url('order/'.$v_dpopular->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_dpopular->img) !!}" alt></a>
+                    <div class="card2">
+                        <h4 class="card_title">1. No. WhatsApp</h4><hr><br>
+                        <input type="text" class="text_card">
+                        <br><br>
+                        <h4 class="card_title">2. Masukkan Data Akun Kamu</h4><hr>
+                        <br><h4 class="card_title">ID</h4>
+                        <input type="text" class="text_card">
+                        <p class="card_text">Contoh : 123456789</p>
+                        <br><br>
+                        <h4 class="card_title">3. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
+                        <br>
+                            <div class="row_price">
+                                @foreach ($price as $v_price)    
+                                <div class="col_price">
+                                    <div class="card_price">
+                                        <h5>{!! $v_price->name_price !!}</h5>
+                                        <i><p>Rp. ({!! number_format($v_price->price) !!})</p></i>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
                     </div>
-                </div>
                 @endforeach
             </div>
-
-            <div class="row" id="card_voucher"><br>
-                @foreach ($dvoucher as $v_voucher)
-                <div class="column">
-                    <div class="card">
-                        <a href="{{ url('order/'.$v_voucher->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_voucher->img) !!}" alt></a>
-                    </div>
+            <div class="card-container">
+                <div class="card3">
+                    
                 </div>
-                @endforeach
+                <div class="card2">
+                    <h4 class="card_title">4. Pilih Metode Pembayaran</h4><hr>
+                    
+                </div>
             </div>
-            
-        </section><br><br><br><br>
+            <div class="card-container">
+                <div class="card3">
+                    
+                </div>
+                <button class="button_price">
+                    <p><i class='bx bxs-cart-add'></i> Pesan Sekarang!</p>
+                </button>
+            </div>
+        </section>
+
+        <br><br>
 
         <footer>
             <div class="waves">
@@ -173,15 +174,6 @@
                 navbar.classList.toggle('open')
             }
 
-            function topupgame() {
-                document.getElementById('card').style.display = 'block';
-                document.getElementById('card_voucher').style.display = 'none';
-            }
-
-            function voucher() {
-                document.getElementById('card').style.display = 'none';
-                document.getElementById('card_voucher').style.display = 'block';
-            }
         </script>
     </body>
 </html>
