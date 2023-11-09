@@ -12,7 +12,26 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+        <?php
+            foreach($bg as $v_bg){
+                $bg_icon = $v_bg->bg_name;
+                $bg_color = $v_bg->bg_color;
+                $bg_color_second = $v_bg->bg_color_second;
+            }
+        ?>
+
+        <link rel="icon" type="image/x-icon" href="{!! asset('assets/logo/'. $bg_icon) !!}">
+
         <style>
+
+            :root{
+                --white: #fff;
+                --black: #000000;
+                --light-blue: <?= $bg_color; ?>;
+                --dark-blue: <?= $bg_color_second ?>;
+            }
+
             footer .wave{
                 position: absolute;
                 top: -65px;
@@ -71,7 +90,7 @@
     </head>
     <body>
         <header>
-            <a href="#" class="logo"><img src="{!! asset('assets/logo/eresta_dev.png') !!}"></a>
+            <a href="/" class="logo"><img src="{!! asset('assets/logo/'. $bg_icon) !!}"></a>
             <ul class="navbar">
                 <li><a href="{{ route('dashboard') }}"><i class='bx bx-home'></i> Home</a></li>
                 <li><a href="#"><i class='bx bx-notepad'></i> Cek Invoice</a></li>
@@ -100,26 +119,172 @@
                         <p class="card_text">{!! $v_product->description !!}</p>
                     </div>
                     <div class="card2">
-                        <h4 class="card_title">1. No. WhatsApp</h4><hr><br>
-                        <input type="text" class="text_card">
-                        <br><br>
-                        <h4 class="card_title">2. Masukkan Data Akun Kamu</h4><hr>
-                        <br><h4 class="card_title">ID</h4>
-                        <input type="text" class="text_card">
-                        <p class="card_text">Contoh : 123456789</p>
-                        <br><br>
-                        <h4 class="card_title">3. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
-                        <br>
-                            <div class="row_price">
-                                @foreach ($price as $v_price)    
-                                <div class="col_price">
-                                    <div class="card_price">
-                                        <h5>{!! $v_price->name_price !!}</h5>
-                                        <i><p>Rp. ({!! number_format($v_price->price) !!})</p></i>
+                        @if($v_product->developer_name == "Tencent")
+                            <h4 class="card_title">1. No. WhatsApp</h4><hr><br>
+                            <input type="text" class="text_card">
+                            <br><br>
+                            <h4 class="card_title">2. Masukkan Data Akun Kamu</h4><hr>
+                            <br><h4 class="card_title">ID</h4>
+                            <input type="text" class="text_card">
+                            <p class="card_text">Contoh : 123456789</p>
+                            <br><br>
+                            <h4 class="card_title">3. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
+                            <br>
+                                <div class="row_price">
+                                    @foreach ($price as $v_price)    
+                                    <div class="col_price">
+                                        <div class="card_price">
+                                            <h5>{!! $v_price->name_price !!}</h5>
+                                            <i><p>Rp. ({!! number_format($v_price->price) !!})</p></i>
+                                        </div>
                                     </div>
+                                    @endforeach
                                 </div>
-                                @endforeach
-                            </div>
+                        @elseif($v_product->developer_name == "Moonton")
+                            <h4 class="card_title">1. No. WhatsApps</h4><hr><br>
+                            <input type="text" class="text_card" placeholder="Masukkan No Whatsapp">
+                            <br><br>
+                            <h4 class="card_title">2. Masukkan Data Akun Kamu</h4><hr>
+                            <br><h4 class="card_title">ID</h4>
+                            <input type="text" class="text_card" placeholder="Masukkan ID Pengguna"> <input type="text" class="text_card_2" placeholder="Masukkan ID Zona">
+                            <p class="card_text">Contoh : ID Pengguna : 123456789, ID Zona : (1234)</p>
+                            <br><br>
+                            <h4 class="card_title">3. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
+                            <br>
+                                <div class="row_price">
+                                    @foreach ($price as $v_price2)    
+                                    <div class="col_price">
+                                        <div class="card_price">
+                                            <h5>{!! $v_price2->name_price !!}</h5>
+                                            <i><p>Rp. ({!! number_format($v_price2->price) !!})</p></i>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                        @elseif($v_product->developer_name == "Riot Games")
+                            <h4 class="card_title">1. No. WhatsApps</h4><hr><br>
+                            <input type="text" class="text_card" placeholder="Masukkan No Whatsapp">
+                            <br><br>
+                            <h4 class="card_title">2. Masukkan Data Akun Kamu</h4><hr>
+                            <br><h4 class="card_title">ID</h4>
+                            <input type="text" class="text_card" placeholder="Masukkan ID Pengguna">
+                            <p class="card_text">Contoh : ID Pengguna : 123456789</p>
+                            <br><br>
+                            <h4 class="card_title">3. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
+                            <br>
+                                <div class="row_price">
+                                    @foreach ($price as $v_price3)    
+                                    <div class="col_price">
+                                        <div class="card_price">
+                                            <h5>{!! $v_price3->name_price !!}</h5>
+                                            <i><p>Rp. ({!! number_format($v_price3->price) !!})</p></i>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                        @elseif($v_product->developer_name == "Garena")
+                            <h4 class="card_title">1. No. WhatsApps</h4><hr><br>
+                            <input type="text" class="text_card" placeholder="Masukkan No Whatsapp">
+                            <br><br>
+                            <h4 class="card_title">2. Masukkan Data Akun Kamu</h4><hr>
+                            <br><h4 class="card_title">ID</h4>
+                            <input type="text" class="text_card" placeholder="Masukkan ID Pengguna">
+                            <p class="card_text">Contoh : ID Pengguna : 123456789</p>
+                            <br><br>
+                            <h4 class="card_title">3. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
+                            <br>
+                                <div class="row_price">
+                                    @foreach ($price as $v_price4)
+                                        <div class="col_price">
+                                            <div class="card_price">
+                                                <h5>{!! $v_price4->name_price !!}</h5>
+                                                <i><p>Rp. ({!! number_format($v_price4->price) !!})</p></i>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                        @elseif($v_product->developer_name == "VNG Games")
+                            <h4 class="card_title">1. No. WhatsApps</h4><hr><br>
+                            <input type="text" class="text_card" placeholder="Masukkan No Whatsapp">
+                            <br><br>
+                            <h4 class="card_title">2. Masukkan Data Akun Kamu</h4><hr>
+                            <br><h4 class="card_title">ID</h4>
+                            <input type="text" class="text_card" placeholder="Masukkan ID Pengguna">
+                            <p class="card_text">Contoh : ID Pengguna : 123456789</p>
+                            <br><br>
+                            <h4 class="card_title">3. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
+                            <br>
+                                <div class="row_price">
+                                    @foreach ($price as $v_price4)
+                                        <div class="col_price">
+                                            <div class="card_price">
+                                                <h5>{!! $v_price4->name_price !!}</h5>
+                                                <i><p>Rp. ({!! number_format($v_price4->price) !!})</p></i>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                        @elseif($v_product->developer_name == "HoYoverse")
+                            <h4 class="card_title">1. No. WhatsApps</h4><hr><br>
+                            <input type="text" class="text_card" placeholder="Masukkan No Whatsapp">
+                            <br><br>
+                            <h4 class="card_title">2. Masukkan Data Akun Kamu</h4><hr>
+                            <br><h4 class="card_title">ID</h4>
+                            <input type="text" class="text_card" placeholder="Masukkan ID Pengguna">
+                            <select type="text" class="select_card">
+                                <option value="">Masukkan ID Zona</option>
+                                <option value="asia">Asia</option>
+                                <option value="amerika">Amerika</option>
+                                <option value="eropa">Eropa</option>
+                                <option value="tk">TK, HK, MO</option>
+                            </select>
+                            <p class="card_text">Contoh : ID Pengguna : 123456789</p>
+                            <br><br>
+                            <h4 class="card_title">3. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
+                            <br>
+                                <div class="row_price">
+                                    @foreach ($price as $v_price4)
+                                        <div class="col_price">
+                                            <div class="card_price">
+                                                <h5>{!! $v_price4->name_price !!}</h5>
+                                                <i><p>Rp. ({!! number_format($v_price4->price) !!})</p></i>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                        @elseif($v_product->developer_name == "Google Play")
+                            <h4 class="card_title">1. No. WhatsApps</h4><hr><br>
+                            <input type="text" class="text_card" placeholder="Masukkan No Whatsapp">
+                            <br><br>
+                            <h4 class="card_title">2. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
+                            <br>
+                                <div class="row_price">
+                                    @foreach ($price as $v_price4)
+                                        <div class="col_price">
+                                            <div class="card_price">
+                                                <h5>{!! $v_price4->name_price !!}</h5>
+                                                <i><p>Rp. ({!! number_format($v_price4->price) !!})</p></i>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                        @elseif($v_product->developer_name == "Steam")
+                            <h4 class="card_title">1. No. WhatsApps</h4><hr><br>
+                            <input type="text" class="text_card" placeholder="Masukkan No Whatsapp">
+                            <br><br>
+                            <h4 class="card_title">2. Masukkan Nominal Yang Ingin Kamu Beli</h4><hr>
+                            <br>
+                                <div class="row_price">
+                                    @foreach ($price as $v_price4)
+                                        <div class="col_price">
+                                            <div class="card_price">
+                                                <h5>{!! $v_price4->name_price !!}</h5>
+                                                <i><p>Rp. ({!! number_format($v_price4->price) !!})</p></i>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                        @endif
                     </div>
                 @endforeach
             </div>
@@ -128,7 +293,7 @@
                     
                 </div>
                 <div class="card2">
-                    <h4 class="card_title">4. Pilih Metode Pembayaran</h4><hr>
+                    <h4 class="card_title">3. Pilih Metode Pembayaran</h4><hr>
                     
                 </div>
             </div>
@@ -145,19 +310,19 @@
         <br><br>
 
         <footer>
-            <div class="waves">
+            <!-- <div class="waves">
                 <div class="wave" id="wave1"></div>
                 <div class="wave" id="wave2"></div>
                 <div class="wave" id="wave3"></div>
                 <div class="wave" id="wave4"></div>
-            </div>
+            </div> -->
             <ul class="social_icon">
                 <li><a href="#"><i class='bx bxl-facebook-circle'></i></a></li>
                 <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
                 <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
             </ul>
             <ul class="menu">
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">Cek Invoice</a></li>
                 <li><a href="#">Price List</a></li>
                 <li><a href="#">About</a></li>

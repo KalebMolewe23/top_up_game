@@ -12,7 +12,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-
+        
         <?php
             foreach($bg as $v_bg){
                 $bg_icon = $v_bg->bg_name;
@@ -111,61 +111,17 @@
         </header>
 
         <section class="home container">
-            <div id="slider">
-                <figure>
-                    <img src="{!! asset('assets/logo/banner1.jpg') !!}" alt>
-                    <img src="{!! asset('assets/logo/banner2.jpg') !!}" alt>
-                    <img src="{!! asset('assets/logo/banner3.jpg') !!}" alt>
-                    <img src="{!! asset('assets/logo/banner2.jpg') !!}" alt>
-                    <img src="{!! asset('assets/logo/banner3.jpg') !!}" alt>
-                </figure>
-            </div><br>
-            <h4>Popular</h4><br>
+            <h4>Pencarian Anda.</h4><br>
             <div class="row">
-                @foreach ($popular as $v_popular)
+                @foreach ($product as $v_product)
                 <div class="column">
                     <div class="card">
-                        <a href="{{ url('order/'.$v_popular->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_popular->img) !!}" alt></a>
+                        <a href="{{ url('order/'.$v_product->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_product->img) !!}" alt></a>
                     </div>
                 </div>
                 @endforeach
             </div></br></br>
-
-            <div class="rows">
-                <div class="cols">
-                    <button class="button" onclick="topupgame()">Top Up Game</button>
-                    <button class="button" onclick="voucher()">Voucher</button>
-
-                    <!-- <form action="{{ route('dashboard.search') }}" method="GET">
-                        <input type="text" placeholder="   ketik Nama Game.." name="query">
-                        <button type="submit" class="buttonsearch"><i class='bx bx-search-alt-2'></i></button>
-                    </form> -->
-                </div>
-            </div>
-
-            <div class="row" id="card"><br>
-                <h4>Top Up Game</h4><br>
-                @foreach ($dpopular as $v_dpopular)
-                <div class="column">
-                    <div class="card">
-                        <a href="{{ url('order/'.$v_dpopular->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_dpopular->img) !!}" alt></a>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-
-            <div class="row" id="card_voucher"><br>
-                <h4>Top Up Voucher</h4><br>
-                @foreach ($dvoucher as $v_voucher)
-                <div class="column">
-                    <div class="card">
-                        <a href="{{ url('order/'.$v_voucher->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_voucher->img) !!}" alt></a>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            
-        </section><br><br><br><br>
+        </section><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
         <footer>
             <!-- <div class="waves">

@@ -25,6 +25,9 @@
         <link rel="stylesheet" type="text/css" href="{!! asset('assets/login/css/util.css') !!}">
         <link rel="stylesheet" type="text/css" href="{!! asset('assets/login/css/main.css') !!}">
     <!--===============================================================================================-->
+
+    <link rel="icon" type="image/x-icon" href="{!! asset('assets/logo/iki_gamestore.png') !!}">
+
     </head>
 
     <body>

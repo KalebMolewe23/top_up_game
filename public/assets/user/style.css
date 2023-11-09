@@ -7,13 +7,6 @@
     list-style: none;
 }
 
-:root{
-    --white: #fff;
-    --black: #000000;
-    --light-blue: #424769;
-    --dark-blue: #2d3250;
-}
-
 body{
     min-height: 100vh;
     background: var(--dark-blue);
@@ -293,7 +286,7 @@ footer p{
     padding: 20px;
     margin: 20px;
     width: 300px;
-    height: 400px;
+    height: 500px;
 }
 
 .card1 img{
@@ -316,6 +309,12 @@ footer p{
 }
 
 .card2 input{
+    border-radius: 10px;
+    width: 300px;
+    height: 35px;
+}
+
+.card2 select{
     border-radius: 10px;
     width: 300px;
     height: 35px;
@@ -354,7 +353,7 @@ footer p{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px;
-    width: 140px;
+    width: 180px;
 }
 
 .button_price {
@@ -436,6 +435,28 @@ footer p{
     }
     .rows i {
         color: var(--white);
+    }
+    .card1 {
+        background-color: var(--light-blue);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 24px 10px;
+        width: 250px;
+        height: 500px;
+    }
+    .col_price {
+        float: left;
+        width: 40%;
+        padding: 0 0px;
+    }
+    .card_price{
+        background-color: var(--dark-blue);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 25px 5px;
+        margin: 10px 15px;
+        width: 120px;
     }
 }
 
