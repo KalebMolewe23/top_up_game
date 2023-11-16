@@ -89,26 +89,19 @@
         </style>
     </head>
     <body>
-        <header>
-            <a href="/" class="logo"><img src="{!! asset('assets/logo/'. $bg_icon) !!}"></a>
-            <ul class="navbar">
-                <li><a href="{{ route('dashboard') }}"><i class='bx bx-home'></i> Home</a></li>
-                <li><a href="#"><i class='bx bx-notepad'></i> Cek Invoice</a></li>
-                <li><a href="#"><i class='bx bx-food-menu'></i> Price List</a></li>
-                <li><a href="#"><i class='bx bx-buildings'></i> About</a></li>
-            </ul>
-
-            <div class="main">
-                <div class="search-container">
-                    <form action="">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-                    </form>
-                </div>
-                <div class="bx bx-menu" id="menu-icon"></div>
-            </div>
-        </header>
-
+        @include('layout.header')
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <section class="home container">
             <div class="card-container">
                 @foreach ($product as $v_product)
@@ -309,36 +302,6 @@
 
         <br><br>
 
-        <footer>
-            <!-- <div class="waves">
-                <div class="wave" id="wave1"></div>
-                <div class="wave" id="wave2"></div>
-                <div class="wave" id="wave3"></div>
-                <div class="wave" id="wave4"></div>
-            </div> -->
-            <ul class="social_icon">
-                <li><a href="#"><i class='bx bxl-facebook-circle'></i></a></li>
-                <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
-                <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
-            </ul>
-            <ul class="menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">Cek Invoice</a></li>
-                <li><a href="#">Price List</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-            <p>&copy; Eresta Dev | All Rights Reserved <?= date('Y') ?></p>
-        </footer>
-
-        <script>
-            let menu = document.querySelector('#menu-icon');
-            let navbar = document.querySelector('.navbar');
-
-            menu.onclick = () => {
-                menu.classList.toggle('bx-x');
-                navbar.classList.toggle('open')
-            }
-
-        </script>
+        @include('layout.footer')
     </body>
 </html>
