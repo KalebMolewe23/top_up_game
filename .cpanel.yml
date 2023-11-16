@@ -1,6 +1,6 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ikiz7975/public_html
+    - export DEPLOYPATH=/home/ikiz7975/public_html/
     - /bin/cp .editorconfig $DEPLOYPATH
     - /bin/cp .env $DEPLOYPATH
     - /bin/cp .env.example $DEPLOYPATH
