@@ -53,8 +53,8 @@
             <ul class="sub-menu">
                 <li><a class="link_name" href="/background">CMS</a></li>
                 <li><a href="/background">Background</a></li>
-                <li><a href="">Social Media</a></li>
-                <li><a href="">About</a></li>
+                <li><a href="/social_media">Social Media</a></li>
+                <li><a href="/about">About</a></li>
             </ul>
         </li>
         <li>

@@ -1,22 +1,25 @@
 <footer>
-    <!-- <div class="waves">
-        <div class="wave" id="wave1"></div>
-        <div class="wave" id="wave2"></div>
-        <div class="wave" id="wave3"></div>
-        <div class="wave" id="wave4"></div>
-    </div> -->
+    <?php
+    $data_social = DB::table('social_media_models')->where('status_sosmed', 1)->get();
+    $data = DB::table('about_models')->get();
+    foreach($data as $v_data){
+        $phone = $v_data->phone;
+        $name = $v_data->name_website;
+    }
+    ?>
+
     <ul class="social_icon">
-        <li><a href="#"><i class='bx bxl-facebook-circle'></i></a></li>
-        <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
-        <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
+        @foreach($data_social as $v_social)  
+            <li><a href="<?= $v_social->link_sosmed; ?>"><i class='<?= $v_social->icon_sosmed; ?>'></i></a></li>
+        @endforeach
     </ul>
     <ul class="menu">
         <li><a href="/">Home</a></li>
         <li><a href="#">Cek Invoice</a></li>
         <li><a href="#">Price List</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="#">Terms</a></li>
     </ul>
-    <p>&copy; Eresta Dev | All Rights Reserved <?= date('Y') ?></p>
+    <p>&copy; <?= $name ?> | All Rights Reserved <?= date('Y') ?></p>
 </footer>
 
 <script>

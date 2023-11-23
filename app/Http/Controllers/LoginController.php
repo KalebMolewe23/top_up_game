@@ -28,17 +28,17 @@ class LoginController extends Controller
 
         //proses saat memasukan data dan data valid
         if (Auth::Attempt($data)){
-            return redirect('home');
+            return redirect('/home');
         //proses saat memasukkan data dan data tidak valid
         }else{
             Session::flash('error', 'Email Atau Password Anda Salah');
-            return redirect('/');
+            return redirect('/administrator');
         }
     }
 
     //action saat user melakukan logout
     public function actionlogout(){
         Auth::logout();
-        return redirect('/');
+        return redirect('/administrator');
     }
 }

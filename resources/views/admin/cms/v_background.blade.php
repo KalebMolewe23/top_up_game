@@ -35,7 +35,11 @@
     <!-- Datatables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
- 
+    
+    <!-- css notifications -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <?php
     foreach($bg as $v_bg){
         $id = $v_bg->id;
@@ -48,6 +52,7 @@
     <link rel="icon" type="image/x-icon" href="{!! asset('assets/logo/'. $bg_icon) !!}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
     <style>
     .sidebar {
@@ -326,22 +331,22 @@
       <main>
         <div class="container-fluid">
         <br>
-            <form action="{{ route('update.bg', $id) }}" method="post" enctype="multipart/form-data">
+            @foreach($bg as $v_bg)
+            <form action="/update/{{ $v_bg->id }}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
-
-                <input type="hidden" name="id" class="form-control" value="<?= $id ?>">
+                <input type="hidden" name="id" class="form-control" value="<?= $v_bg->id ?>">
                 <label>Logo Website :</label><br>
-                <img class="main-logo" src="{!! asset('assets/logo/'. $bg_icon) !!}" width="60px" alt="" /><br><br>
+                <img class="main-logo" src="{!! asset('assets/logo/'. $v_bg->bg_name) !!}" width="60px" alt="" /><br><br>
                 <input type="file" name="bg_name"><br><br>
                 <label>Background Color Website :</label>
-                <input type="color" class="form-control" name="bg_color" value="<?= $bg_color; ?>"><br>
+                <input type="color" class="form-control" name="bg_color" value="<?= $v_bg->bg_color ?>"><br>
                 <label>Background Second Color Website :</label>
-                <input type="color" class="form-control" name="bg_color_second" value="<?= $bg_color_second ?>"></br>
+                <input type="color" class="form-control" name="bg_color_second" value="<?= $v_bg->bg_color_second ?>"></br>
                 <div align="right">
                 <button type="submit" class="btn btn-primary"><i class='bx bxs-memory-card'></i> Update</button>
                 </div>
             </form>
+            @endforeach
         </div>
       </main>
     </section>

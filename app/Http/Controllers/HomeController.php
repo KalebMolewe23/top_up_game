@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index(){
 
-        $data = DB::table('background')->get();
+        $data = DB::table('backgrounds')->get();
 
         return view('admin.home.v_home', ['bg' => $data]);
     }

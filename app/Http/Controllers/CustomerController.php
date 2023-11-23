@@ -10,7 +10,7 @@ class CustomerController extends Controller
 {
     public function index(){
         $data_cust = DB::table('customers')->get();
-        $data = DB::table('background')->get();
+        $data = DB::table('backgrounds')->get();
 
         return view('admin.customer.v_customer', ['bg' => $data, 'customer' => $data_cust]);
     }

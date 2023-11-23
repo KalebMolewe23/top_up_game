@@ -36,6 +36,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
  
+    <!-- css notifications -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <?php
     foreach($bg as $v_bg){
         $id = $v_bg->id;
@@ -325,7 +328,7 @@
 
       <main>
         <div class="container-fluid">
-        <a href="/tambah_developer"><button class="btn btn-success" type="button"><i class='bx bxs-file-plus'></i> Tambah Data</button></a>
+        <a href="/tambah_product"><button class="btn btn-success" type="button"><i class='bx bxs-file-plus'></i> Tambah Data</button></a>
         <br><br>
         <table class="table table-striped">
                 <thead>
@@ -350,8 +353,8 @@
                         <td><img class="main-logo" src="{!! asset('assets/logo/'. $v_product->img) !!}" width="60px" alt="" /></td>
                         <td>{!! $v_product->description; !!}</td>
                         <td>
-                            <a href='{{ url("edit_dev/".$v_product->idproduct) }}' class="btn btn-warning btn-sm">Ubah</a>
-                            <form class="d-inline" action="{{ url('delete_dev/'.$v_product->idproduct) }}" method="post">
+                            <a href='{{ url("edit_product/".$v_product->id) }}' class="btn btn-warning btn-sm">Ubah</a>
+                            <form class="d-inline" action="{{ url('delete_product/'.$v_product->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" name="submit" class="btn btn-danger btn-sm">Hapus</button>

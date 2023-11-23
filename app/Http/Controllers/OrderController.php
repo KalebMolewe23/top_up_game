@@ -9,9 +9,9 @@ class OrderController extends Controller
 {
     public function index($id){
 
-        $data = DB::table('products')->where('idproduct',$id)->join('developers', 'developers.iddeveloper', '=', 'products.iddeveloper')->get();
+        $data = DB::table('products')->where('id',$id)->join('developers', 'developers.iddeveloper', '=', 'products.iddeveloper')->get();
         $data_price = DB::table('price_list')->where('idproduct', $id)->get();
-        $data_bg = DB::table('background')->get();
+        $data_bg = DB::table('backgrounds')->get();
 
         return view('order', ['product' => $data, 'price' => $data_price, 'bg' => $data_bg]);
     }

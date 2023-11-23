@@ -109,7 +109,7 @@
                 @foreach ($product as $v_product)
                 <div class="column">
                     <div class="card">
-                        <a href="{{ url('order/'.$v_product->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_product->img) !!}" alt></a>
+                        <a href="{{ url('order/'.$v_product->id) }}"><img src="{!! asset('assets/logo/'.$v_product->img) !!}" alt></a>
                     </div>
                 </div>
                 @endforeach

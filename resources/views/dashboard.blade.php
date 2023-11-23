@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Title</title>
+        <title>Ikigamestore</title>
 
         <link rel="stylesheet" href="{!! asset('assets/user/style.css') !!}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -118,7 +118,7 @@
                 @foreach ($popular as $v_popular)
                 <div class="column">
                     <div class="card">
-                        <a href="{{ url('order/'.$v_popular->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_popular->img) !!}" alt></a>
+                        <a href="{{ url('order/'.$v_popular->id) }}"><img src="{!! asset('assets/logo/'.$v_popular->img) !!}" alt></a>
                     </div>
                 </div>
                 @endforeach
@@ -129,9 +129,9 @@
                     <button class="button" onclick="topupgame()">Top Up Game</button>
                     <button class="button" onclick="voucher()">Voucher</button>
                     
-                    <form action="{{ route('dashboard.search') }}" method="GET">
+                    <!-- <form action="{{ route('dashboard.search') }}" method="GET">
                         <input type="text" placeholder="   ketik Nama Game.." name="query">
-                    </form>
+                    </form> -->
                 </div>
             </div>
 
@@ -140,7 +140,7 @@
                 @foreach ($dpopular as $v_dpopular)
                 <div class="column">
                     <div class="card">
-                        <a href="{{ url('order/'.$v_dpopular->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_dpopular->img) !!}" alt></a>
+                        <a href="{{ url('order/'.$v_dpopular->id) }}"><img src="{!! asset('assets/logo/'.$v_dpopular->img) !!}" alt></a>
                     </div>
                 </div>
                 @endforeach
@@ -151,7 +151,7 @@
                 @foreach ($dvoucher as $v_voucher)
                 <div class="column">
                     <div class="card">
-                        <a href="{{ url('order/'.$v_voucher->idproduct) }}"><img src="{!! asset('assets/logo/'.$v_voucher->img) !!}" alt></a>
+                        <a href="{{ url('order/'.$v_voucher->id) }}"><img src="{!! asset('assets/logo/'.$v_voucher->img) !!}" alt></a>
                     </div>
                 </div>
                 @endforeach
