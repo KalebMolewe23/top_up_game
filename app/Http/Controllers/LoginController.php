@@ -28,11 +28,11 @@ class LoginController extends Controller
 
         //proses saat memasukan data dan data valid
         if (Auth::Attempt($data)){
-            return redirect('/home');
+            return redirect('/dashboard');
         //proses saat memasukkan data dan data tidak valid
         }else{
             Session::flash('error', 'Email Atau Password Anda Salah');
-            return redirect('/administrator');
+            return redirect('/panelikigamestore');
         }
     }
 

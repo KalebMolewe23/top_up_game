@@ -1,25 +1,46 @@
-<footer>
-    <?php
+<?php
     $data_social = DB::table('social_media_models')->where('status_sosmed', 1)->get();
     $data = DB::table('about_models')->get();
-    foreach($data as $v_data){
-        $phone = $v_data->phone;
-        $name = $v_data->name_website;
-    }
-    ?>
+        foreach($data as $v_data){
+            $phone = $v_data->phone;
+            $name = $v_data->name_website;
+        }
+?>
 
-    <ul class="social_icon">
-        @foreach($data_social as $v_social)  
-            <li><a href="<?= $v_social->link_sosmed; ?>"><i class='<?= $v_social->icon_sosmed; ?>'></i></a></li>
-        @endforeach
-    </ul>
-    <ul class="menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Cek Invoice</a></li>
-        <li><a href="#">Price List</a></li>
-        <li><a href="#">Terms</a></li>
-    </ul>
-    <p>&copy; <?= $name ?> | All Rights Reserved <?= date('Y') ?></p>
+
+<footer>
+    <div class="row_footer">
+        <div class="col_footer">
+            <img src="{!! asset('assets/logo/'. $bg_icon) !!}" class="logo_footer">
+        </div>
+        <div class="col_footer">
+            <h3>Contact Us <div class="underline"><span></span></div> </h3>
+            <p>ITPL Road</p>
+            <p>Whitefield, Bangalore</p>
+            <p>Karnataka, PIN 31323, India</p>
+            <p class="email-id">ikigamestore.com</p>
+            <h4>+628392839238</h4>
+        </div>
+        <div class="col_footer">
+            <h3>Links <div class="underline"><span></span></div></h3>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Cek Invoice</a></li>
+                <li><a href="">Price List</a></li>
+                <li><a href="">Terms</a></li>
+            </ul>
+        </div>
+        <div class="col_footer">
+            <h3>Social Media <div class="underline"><span></span></div></h3>
+            <dic class="social-icons">
+                @foreach($data_social as $v_social) 
+                    <a href="<?= $v_social->link_sosmed; ?>"><i class='<?= $v_social->icon_sosmed; ?>'></i></a>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p class="copyright">&copy; <?= $name ?> | All Rights Reserved <?= date('Y') ?></p>
 </footer>
 
 <script>
@@ -31,13 +52,22 @@
         navbar.classList.toggle('open')
     }
 
-    function topupgame() {
-        document.getElementById('card').style.display = 'block';
-        document.getElementById('card_voucher').style.display = 'none';
-    }
+    var slideImg = document.getElementById("slideImg");
 
-    function voucher() {
-        document.getElementById('card').style.display = 'none';
-        document.getElementById('card_voucher').style.display = 'block';
+    var images = new Array(
+        "{!! asset('assets/logo/pubg_bg.jpg') !!}",
+        "{!! asset('assets/logo/ml_bg.jpg') !!}"
+    );
+
+    var len = images.length;
+    var i = 0;
+
+    function slider(){
+        if(i > len-1){
+            i = 0;
+        }
+        slideImg.src = images[i];
+        i++;
+        setTimeout('slider()', 3000);
     }
 </script>

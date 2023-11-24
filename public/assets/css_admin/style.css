@@ -44,6 +44,14 @@
     font-weight: 600;
 }
 
+.menu_name{
+    color: white;
+}
+
+.sidebar.close .menu_name{
+    display: none;
+}
+
 .logo-details{
     padding: 10px;
 }
